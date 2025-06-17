@@ -8,6 +8,7 @@ export async function POST(req) {
         const id = uuidv4();
         console.log(username);
         console.log(password);
+        
         console.log(id);
 
         const q = 'INSERT INTO users (id, username, password) VALUES (?, ?, ?)';
