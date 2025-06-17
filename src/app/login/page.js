@@ -21,8 +21,6 @@ export default function Login(){
             }),
         });
 
-        const data = await res.json();
-        
     }
     const [showPassword, setShowPassword] = useState(false);
     const togglePasswordVisibility = () => {
