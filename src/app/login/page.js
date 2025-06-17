@@ -7,6 +7,23 @@ export default function Login(){
         username:'',
         password:''
     });
+
+    const handleSubmit = async(e)=>{
+
+        const res = await fetch('/api/login',{
+            method:'POST',
+            headers:{
+                'constent-Type' :'application/json',
+            },
+            body:JSON.stringify({
+                username:formData.username,
+                password:formData,
+            }),
+        });
+
+        const data = await res.json();
+        
+    }
     const [showPassword, setShowPassword] = useState(false);
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
