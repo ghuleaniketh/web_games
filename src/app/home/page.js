@@ -1,6 +1,10 @@
-import styles from './home.module.css'
+'use client'
+import styles from './home.module.css';
+import { useRouter } from 'next/navigation';
 
 export default function Home(){
+    let router = useRouter();
+    let router2 =useRouter();
     let username = "Aniketh"
     return(
         <>
@@ -18,20 +22,20 @@ export default function Home(){
             <p>Available Games</p>
         </div >
         <div className={styles.gamecont}>
-            <div className={styles.g1}>
+            <div className={styles.g1} onClick={()=>router.push('./simon')}>
                 <img src='/simon.png'/>
                 <div className={styles.gamename}>
                     <p>Simon</p>
                 </div>
             </div>
-            <div className={styles.g1}>
+            <div className={styles.g1} onClick={()=>router.push('./working')}>
                  <img src='/comingsoon.png'/>
                 <div className={styles.gamename}>
                     <p>Coming Soon</p>
                 </div>
 
             </div>
-            <div className={styles.g1}>
+            <div className={styles.g1}  onClick={()=>router.push('./upcoming')}>
                  <img src='/comingsoon.png'/>
                 <div className={styles.gamename}>
                     <p>Coming Soon</p>
