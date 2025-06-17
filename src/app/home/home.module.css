@@ -1,0 +1,31 @@
+.topnav{
+    width: 90%;
+    padding: 7px 5%;
+}
+.username{
+    font-size: clamp(15px,2vw,30px);
+    font-family: 'Poppins', sans-serif;
+}
+.branding{
+    font-size: clamp(10px,3vw,40px);
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #ffe29f 0%, #ffa07a 100%);
+}
+
+.heading1 p{
+    font-weight: 600;
+    font-size: clamp(15px ,2vw,30px);
+    font-family: 'Poppins', sans-serif;
+}
+.simon{
+    cursor: pointer;
+    height: 160px;
+    width: 120px;
+    border: 1px solid black;
+}
