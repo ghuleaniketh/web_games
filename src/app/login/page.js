@@ -1,15 +1,19 @@
 'use client'
+import { useRouter } from 'next/navigation';
 import styles from './login.module.css';
 import { useState } from 'react';
 
 export default function Login(){
+    const router = useRouter();
+    
+    const [error, setError] = useState('');
     const [formData,setFormData] = useState({
         username:'',
         password:''
     });
 
     const handleSubmit = async(e)=>{
-
+        e.preventDefault();
         const res = await fetch('/api/login',{
             method:'POST',
             headers:{
@@ -17,23 +21,38 @@ export default function Login(){
             },
             body:JSON.stringify({
                 username:formData.username,
-                password:formData,
+                password:formData.password,
             }),
         });
 
+        const data = await res.json();
+        try{
+            if (res.ok){
+            if(data[0].password === formData.password){
+                router.push('/home');
+            }else{
+                setError('Give correct Password buddy!!!!!!!!!');
+            }
+        }else{
+            setError(data.error);
+        }
+        }catch{
+            setError('user not found buddy!!!!!')
+        }
+        
     }
     const [showPassword, setShowPassword] = useState(false);
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
     return(
-        
         <>
         <div className={styles.cont}>
+            {error && <p className={styles.error}>{error}</p>}
             <div className={styles.formcont}>
             <p>Hello buddy</p>
             <h3>Let's Login</h3>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className={styles.inputcont}>
                     <input
                     type='text'
