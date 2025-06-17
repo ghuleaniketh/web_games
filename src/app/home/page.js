@@ -18,10 +18,27 @@ export default function Home(){
             <p>Available Games</p>
         </div >
         <div className={styles.gamecont}>
-            <div className={styles.gamecont}>
-                <img src='./img/simon.png'/>
+            <div className={styles.g1}>
+                <img src='/simon.png'/>
+                <div className={styles.gamename}>
+                    <p>Simon</p>
+                </div>
+            </div>
+            <div className={styles.g1}>
+                 <img src='/comingsoon.png'/>
+                <div className={styles.gamename}>
+                    <p>Coming Soon</p>
+                </div>
+
+            </div>
+            <div className={styles.g1}>
+                 <img src='/comingsoon.png'/>
+                <div className={styles.gamename}>
+                    <p>Coming Soon</p>
+                </div>
             </div>
         </div>
+        
         </>
         
     )
