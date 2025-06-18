@@ -31,8 +31,9 @@ export default function Simon(){
     <div className={styles.page}>
         <div className={styles.bar}>
             <div className={styles.mainNav}>
-                <h1>Let'go {data ? data.username : '  '}</h1>
-                <h2 className={styles.highscore}>Highscore {data ? data.simonScore : " "}</h2>
+                <p>Let'go {data ? data.username : '  '}</p>
+                <p className={styles.highscore}>Highscore {data ? data.simonScore : " "}</p>
+                <p className={styles.leaderboard}>Leaderboard</p>
             </div>
         </div>
         <div className={styles.gamepage}>
