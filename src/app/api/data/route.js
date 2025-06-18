@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 
 export async function GET(){
     
-    const cookieStore = cookies();
+    const cookieStore = await cookies();
     const token = cookieStore.get('token').value;
     console.log(token)
     const q = 'SELECT * FROM users WHERE id = ?'

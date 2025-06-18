@@ -32,6 +32,7 @@
     height: 85%;
     width: 99.6%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -44,9 +45,22 @@
     border-radius: 15px;
     background: linear-gradient(135deg, #2c3e50 40%, #3498db 100%);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.1);
-    border: 3px solid black;
+    border: 5px solid white;
 }   
-
+.status{
+    color: white;
+    width: 80vmin;
+    max-width: 480px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.currentscore p{
+    font-size: clamp(15px ,2vw,20px);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
 .up{
     width: 100%;
     height: 50%;
