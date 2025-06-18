@@ -3,6 +3,7 @@ import styles from './simon.module.css';
 export default function Simon(){
     let username = "aniketh";
     let highscore = 34
+    
     return(
     <>
     <div className={styles.page}>
