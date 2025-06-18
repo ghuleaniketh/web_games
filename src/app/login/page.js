@@ -32,6 +32,8 @@ export default function Login(){
             if(data[0].password === formData.password){
                 router.push('/home');
                 Cookies.set('token', data[0].id, { expires: 7 });
+                const token = Cookies.get('token');
+                console.log(token)
 
                 router.push('/home');
             }else{

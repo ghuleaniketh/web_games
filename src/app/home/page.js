@@ -1,17 +1,29 @@
 'use client'
 import styles from './home.module.css';
 import { useRouter } from 'next/navigation';
-import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
 
 
 export default function Home(){
+    
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetch('/api/data', {
+                method: 'GET',
+            });
+            const result = await res.json();
+            setData(result[0]);
+        }
+        fetchData();
+    }, []);
     let router = useRouter();
-    let username = "Aniketh"
     return(
         <>
         <div className={styles.topnav}>
             <div className={styles.username}>
-                <p>Hello {username}</p>
+                <p>Hello {data ? data.username : 'Loading...'} Buddy 😁</p>
             </div>
         </div>
         <div className={styles.nav}>
@@ -30,7 +42,7 @@ export default function Home(){
                 </div>
             </div>
             <div className={styles.g1} onClick={()=>router.push('./coming')}>
-                 <img src='/comingsoon.png'/>
+                <img src='/comingsoon.png'/>
                 <div className={styles.gamename}>
                     <p>Coming Soon</p>
                 </div>
