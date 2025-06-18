@@ -26,6 +26,36 @@ export default function Simon(){
             fetchData();
         }, []);
             let score = 2;
+
+        let game_pattern = [];
+        let user_pattern = [];
+        let colors = ["green","blue","red","yellow"];
+        let game_start = false;
+        let level = 0;
+        let heading  = document.querySelector(".heading");
+        refershicon = document.querySelector(".icon");
+
+        document.addEventListener("click",function(){
+            if(!game_start){
+                console.log("game chalu kar diya");
+                game_start = true;
+                level = 0;
+                game_pattern = [];
+                user_pattern = [];
+                level_up();
+            }
+        },{once:true});
+
+        function flash(cont) {
+    cont.classList.add("white");
+    
+    setTimeout(function () {
+        cont.classList.remove("white");
+    }, 250);
+}
+
+
+        
     return(
     <>
     <div className={styles.page}>
@@ -41,13 +71,17 @@ export default function Simon(){
                 <div className={styles.icon}>
                     <FontAwesomeIcon icon={faRotateRight} />
                 </div>  
+                <div >
+                    <p className={styles.heading}></p>
+
+                </div>
                 <div className={styles.currentscore}>
-                    <p>score {score}</p>
+                    <p>Level {level}</p>
                 </div>
             </div>
             <div className={styles.gamecont}>
                 <div className={styles.up}>
-                    <div className={styles.red}></div>
+                    <div  className={styles.red }></div>
                     <div className={styles.green}></div>
                 </div>
                 <div className={styles.down}>
