@@ -1,7 +1,18 @@
+import styles from './simon.module.css';
+
 export default function Simon(){
     return(
-        <>
-        <h1>This is Simon Game</h1>
+    <>
+    <div className={styles.page}>
+        <div className={styles.bar}>
+            <div className={styles.mainNav}>
+
+            </div>
+        </div>
+        <div className={styles.gamepage}>
+            
+        </div>
+    </div>
         </>
     )
 }

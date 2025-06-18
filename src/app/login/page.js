@@ -1,4 +1,5 @@
 'use client'
+import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import styles from './login.module.css';
 import { useState } from 'react';
@@ -29,6 +30,9 @@ export default function Login(){
         try{
             if (res.ok){
             if(data[0].password === formData.password){
+                router.push('/home');
+                Cookies.set('token', data[0].id, { expires: 7 });
+
                 router.push('/home');
             }else{
                 setError('Give correct Password buddy!!!!!!!!!');

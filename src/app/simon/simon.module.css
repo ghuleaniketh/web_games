@@ -1,0 +1,24 @@
+
+.page{
+    height: 98vh;
+    width: 100%;
+    background: radial-gradient(circle at 20% 20%, #233a6d 0%, #2e6be2 100%);
+}
+.bar{
+    height: 15%;
+    width: 99%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.mainNav{
+    height: 80%;
+    width: 90%;
+    border: 2px solid black;
+}
+
+.gamepage{
+    height: 85%;
+    width: 99.6%;
+}

@@ -1,10 +1,11 @@
 'use client'
 import styles from './home.module.css';
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
+
 
 export default function Home(){
     let router = useRouter();
-    let router2 =useRouter();
     let username = "Aniketh"
     return(
         <>
@@ -28,14 +29,14 @@ export default function Home(){
                     <p>Simon</p>
                 </div>
             </div>
-            <div className={styles.g1} onClick={()=>router.push('./working')}>
+            <div className={styles.g1} onClick={()=>router.push('./coming')}>
                  <img src='/comingsoon.png'/>
                 <div className={styles.gamename}>
                     <p>Coming Soon</p>
                 </div>
 
             </div>
-            <div className={styles.g1}  onClick={()=>router.push('./upcoming')}>
+            <div className={styles.g1}  onClick={()=>router.push('./coming')}>
                  <img src='/comingsoon.png'/>
                 <div className={styles.gamename}>
                     <p>Coming Soon</p>
