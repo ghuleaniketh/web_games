@@ -1,15 +1,19 @@
 'use client'
 import styles from './simon.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import '@/app/lib/fontawesome'; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import Router, { useRouter } from 'next/navigation';
+import Help from '@/componets/howtoplaysimon';
 
 export default function Simon(){
-     const [data, setData] = useState(null);
+        const router = useRouter();
+    const [showPopup, setShowPopup] = useState(false);
+    const [data, setData] = useState(null);
     
         useEffect(() => {
             async function fetchData() {
@@ -27,8 +31,8 @@ export default function Simon(){
     <div className={styles.page}>
         <div className={styles.bar}>
             <div className={styles.mainNav}>
-                <h1>Let'go {data? data.username : '  '}</h1>
-                <h2 className={styles.highscore}>Highscore {data? data.simonScore:" "}</h2>
+                <h1>Let'go {data ? data.username : '  '}</h1>
+                <h2 className={styles.highscore}>Highscore {data ? data.simonScore : " "}</h2>
             </div>
         </div>
         <div className={styles.gamepage}>
@@ -51,16 +55,16 @@ export default function Simon(){
                 </div>
             </div>
             <div className={styles.helpandexit}>
-                <div className={styles.help}>
+                <div className={styles.help} onClick={() => setShowPopup(true)}>
                     <FontAwesomeIcon icon={faQuestion} />
                 </div>      
-                <div className={styles.exit}>
+                <div className={styles.exit} onClick={() => router.push('./home')}>
                     <FontAwesomeIcon icon={faRightFromBracket} />
-
                 </div>
             </div>
+            {showPopup && <Help onClose={() => setShowPopup(false)} />}
         </div>
     </div>
-        </>
+    </>
     )
 }

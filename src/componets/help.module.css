@@ -1,0 +1,33 @@
+.contener{
+    width: 80vmin;
+    max-width: 400px;
+    height: 600px;
+    position: fixed;
+    background: linear-gradient(135deg, #43cea2 15%, #38a3d1 40%, 70%, #185a9d 100%);
+    color: black;
+    z-index: 1000;
+    border: 2px solid black;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 0 10px gold;
+}
+.header{
+    height: 10%;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.header div{
+    cursor: pointer;
+}
+.contain h1{
+    text-align: center;
+}
+.contain{
+    height: 90%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}

@@ -130,3 +130,12 @@
     justify-content: space-between;
     align-items: center;
 }
+.exit{
+    cursor: pointer;
+}
+.icon{
+    cursor: pointer;
+}
+.help{
+    cursor: pointer;
+}
