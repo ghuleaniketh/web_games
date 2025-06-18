@@ -1,16 +1,28 @@
+'use client'
 import styles from './simon.module.css';
+import { useEffect, useState } from 'react';
 
 export default function Simon(){
-    let username = "aniketh";
-    let highscore = 34
+     const [data, setData] = useState(null);
+    
+        useEffect(() => {
+            async function fetchData() {
+                const res = await fetch('/api/data', {
+                    method: 'GET',
+                });
+                const result = await res.json();
+                setData(result[0]);
+            }
+            fetchData();
+        }, []);
     
     return(
     <>
     <div className={styles.page}>
         <div className={styles.bar}>
             <div className={styles.mainNav}>
-                <h1>Let'go {username}</h1>
-                <h2 className={styles.highscore}>Highscore {highscore}</h2>
+                <h1>Let'go {data? data.username : 'loading.........'}</h1>
+                <h2 className={styles.highscore}>Highscore {data? data.simonScore:" "}</h2>
             </div>
         </div>
         <div className={styles.gamepage}>
