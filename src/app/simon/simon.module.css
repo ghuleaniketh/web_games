@@ -13,11 +13,21 @@
     align-items: end;
 }
 .mainNav{
-    height: 80%;
-    width: 90%;
+    height: 70%;
+    width: 80%;
     border: 2px solid black;
+    padding: 0% 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(8px, 2vw, 15px);
+    background: linear-gradient(90deg, #ff9800 0%, #ff6f00 100%);
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(230, 81, 0, 0.18);
+    color: #fff;
 }
-
 .gamepage{
     height: 85%;
     width: 99.6%;
@@ -80,7 +90,7 @@
     height: 80%;
     width: 40%;
     border-radius: 10px;
-    background-color:#bb9f02 ;
+    background-color:#cfb102 ;
     border: 2px solid black;
     cursor: pointer;
 }
