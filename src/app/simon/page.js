@@ -3,9 +3,10 @@ import styles from './simon.module.css';
 import { useEffect, useState } from 'react';
 import '@/app/lib/fontawesome'; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import { config} from "@fortawesome/free-solid-svg-icons";
 
 export default function Simon(){
      const [data, setData] = useState(null);
@@ -48,7 +49,15 @@ export default function Simon(){
                     <div className={styles.blue}></div>
                     <div className={styles.yellow}></div>
                 </div>
-                
+            </div>
+            <div className={styles.helpandexit}>
+                <div className={styles.help}>
+                    <FontAwesomeIcon icon={faQuestion} />
+                </div>      
+                <div className={styles.exit}>
+                    <FontAwesomeIcon icon={faRightFromBracket} />
+
+                </div>
             </div>
         </div>
     </div>
