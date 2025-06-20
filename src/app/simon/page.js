@@ -9,6 +9,8 @@ import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import Router, { useRouter } from 'next/navigation';
 import Help from '@/componets/howtoplaysimon';
+import { doc } from 'firebase/firestore';
+
 
 export default function Simon(){
         const router = useRouter();
@@ -25,37 +27,58 @@ export default function Simon(){
             }
             fetchData();
         }, []);
-            let score = 2;
 
+        // game logic
         let game_pattern = [];
         let user_pattern = [];
-        let colors = ["green","blue","red","yellow"];
-        let game_start = false;
-        let level = 0;
-        let heading  = document.querySelector(".heading");
-        refershicon = document.querySelector(".icon");
+        let colors = ["green", "blue", "red", "yellow"];
+        const [level,newLevel] = useState(0)
+        const [heading, changeHeading] = useState( "click to start the game");
+        const [game_start, setGameStarted] = useState(false);
 
-        document.addEventListener("click",function(){
-            if(!game_start){
-                console.log("game chalu kar diya");
-                game_start = true;
-                level = 0;
-                game_pattern = [];
-                user_pattern = [];
-                level_up();
+            let game = ()=>{
+                if(game_start === false){
+                    console.log("game start ho gaya");
+                    setGameStarted(true);
+                    console.log(game_start)
+                    game_pattern = [];
+                    user_pattern = [];
+                    level_up()
+                }
+            };
+            function level_up(){
+                let gameLevel = level+1;
+                newLevel(gameLevel);
+                let Rcolor = random_color();
+                game_pattern.push(Rcolor);
+                console.log(game_pattern)
+                changeHeading("game started !!!!!!!");
+                glow(Rcolor)
             }
-        },{once:true});
+            function random_color (){
+                let random = Math.floor(Math.random() * 3);
+                return(colors[random]);
+            }
+            function glow(color){
+                let el = document.getElementById(color);
+                if(el){
+                    setTimeout(()=>{
+                        el.classList.add(styles.glow);
+                    },500);
+                    
+                    setTimeout(()=>{
+                        el.classList.remove(styles.glow);
+                    },1000);
+                }
+            }
+            function user_click(event){
+                if(game_start === true){
+                let el = event.target.id;
+                console.log(el);
+                level_up();
 
-        function flash(cont) {
-    cont.classList.add("white");
-    
-    setTimeout(function () {
-        cont.classList.remove("white");
-    }, 250);
-}
-
-
-        
+                }
+            }
     return(
     <>
     <div className={styles.page}>
@@ -72,21 +95,21 @@ export default function Simon(){
                     <FontAwesomeIcon icon={faRotateRight} />
                 </div>  
                 <div >
-                    <p className={styles.heading}></p>
+                    <p className={styles.heading}>{heading}</p>
 
                 </div>
                 <div className={styles.currentscore}>
                     <p>Level {level}</p>
                 </div>
             </div>
-            <div className={styles.gamecont}>
+            <div className={styles.gamecont} onClick={game}>
                 <div className={styles.up}>
-                    <div  className={styles.red }></div>
-                    <div className={styles.green}></div>
+                    <div onClick={user_click} id='red' className={styles.red } ></div>
+                    <div onClick={user_click} id='green' className={styles.green}></div>
                 </div>
                 <div className={styles.down}>
-                    <div className={styles.blue}></div>
-                    <div className={styles.yellow}></div>
+                    <div onClick={user_click} id='blue' className={styles.blue}></div>
+                    <div onClick={user_click} id='yellow' className={styles.yellow}></div>
                 </div>
             </div>
             <div className={styles.helpandexit}>

@@ -1,8 +1,7 @@
 import db from '@/app/lib/db';
-import Cookies from 'js-cookie';
 import { cookies } from 'next/headers';
 
-export async function GET(){
+export async function GET(req){
     
     const cookieStore = await cookies();
     const token = cookieStore.get('token').value;
