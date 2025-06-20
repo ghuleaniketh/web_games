@@ -9,7 +9,6 @@ import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import Router, { useRouter } from 'next/navigation';
 import Help from '@/componets/howtoplaysimon';
-import { doc } from 'firebase/firestore';
 
 
 export default function Simon(){
@@ -29,8 +28,9 @@ export default function Simon(){
         }, []);
 
         // game logic
-        let game_pattern = [];
-        let user_pattern = [];
+        // let user_pattern = [];
+        const [userPattern,SetUserPattern] = useState([]);
+        const [gamePattern, setGamePattern] = useState([]);
         let colors = ["green", "blue", "red", "yellow"];
         const [level,newLevel] = useState(0)
         const [heading, changeHeading] = useState( "click to start the game");
@@ -40,9 +40,6 @@ export default function Simon(){
                 if(game_start === false){
                     console.log("game start ho gaya");
                     setGameStarted(true);
-                    console.log(game_start)
-                    game_pattern = [];
-                    user_pattern = [];
                     level_up()
                 }
             };
@@ -50,13 +47,14 @@ export default function Simon(){
                 let gameLevel = level+1;
                 newLevel(gameLevel);
                 let Rcolor = random_color();
-                game_pattern.push(Rcolor);
-                console.log(game_pattern)
+                setGamePattern(gamePattern.push(Rcolor));
+                console.log(gamePattern);
                 changeHeading("game started !!!!!!!");
-                glow(Rcolor)
+                
             }
             function random_color (){
                 let random = Math.floor(Math.random() * 3);
+                glow(colors[random]);
                 return(colors[random]);
             }
             function glow(color){
@@ -74,10 +72,27 @@ export default function Simon(){
             function user_click(event){
                 if(game_start === true){
                 let el = event.target.id;
-                console.log(el);
-                level_up();
-
+                SetUserPattern(userPattern.push(el));
+                console.log(gamePattern);   
+                let ind =  userPattern.length - 1;
+                gameCheck(ind, userPattern, gamePattern); 
                 }
+            }
+            function gameCheck(index,userPattern,gamePattern){
+                console.log(userPattern);
+                console.log(gamePattern)
+                if(userPattern[index ] === gamePattern[index]){
+                    if(userPattern.length === gamePattern.length){
+                        setTimeout(()=>{
+                            level_up();
+                        },500);
+                    }
+                }else{
+                    gameOver();
+                }
+            }
+            function gameOver(){
+                console.log("game khatam ho gaya");
             }
     return(
     <>
