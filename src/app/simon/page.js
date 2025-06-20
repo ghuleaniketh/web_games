@@ -27,83 +27,28 @@ export default function Simon(){
             fetchData();
         }, []);
 
-        // game logic
-        // let user_pattern = [];
-        const [userPattern,SetUserPattern] = useState([]);
-        const [gamePattern, setGamePattern] = useState([]);
-        let colors = ["green", "blue", "red", "yellow"];
-        const [level,newLevel] = useState(0)
-        const [heading, changeHeading] = useState( "click to start the game");
-        const [game_start, setGameStarted] = useState(false);
+        //game ka Logic 
+        let [userPattern,setUserPattern] = useState([]);
+        let [gamePattern,setGamePattern] = useState([]);
+        let [game,setGameMode] = useState(false);
 
-            let game = ()=>{
-                if(game_start === false){
-                    console.log("game start ho gaya");
-                    setGameStarted(true);
-                    level_up()
-                }
-            };
-            function level_up(){
-                let gameLevel = level+1;
-                newLevel(gameLevel);
-                let Rcolor = random_color();
-                // setGamePattern(gamePattern.push(Rcolor));
-                setGamePattern(prev =>{
-                    const newGamePattern =[...prev,Rcolor];
-                    changeHeading("game started !!!!!!!");
-                    glow(Rcolor);
-                    
-                    console.log(newGamePattern);
-                    return newGamePattern;
-                })
-                
+        let startGame = ()=>{
+            if(game === false){
+                game = true;
+                console.log("game started......");
             }
-            function random_color(){
-                let random = Math.floor(Math.random() * 3);
-                glow(colors[random]);
-                return(colors[random]);
-            }
-            function glow(color){
-                let el = document.getElementById(color);
-                if(el){
-                    setTimeout(()=>{
-                        el.classList.add(styles.glow);
-                    },500);
-                    
-                    setTimeout(()=>{
-                        el.classList.remove(styles.glow);
-                    },1000);
-                }
-            }
-            function user_click(event){
-                if(game_start === true){    
-                let el = event.target.id;
-                console.log(el)
-                SetUserPattern(prev => {
-      const newUserPattern = [...prev, el];
-      let index = newUserPattern.length - 1;
-      console.log(index);
-      gameCheck(index, newUserPattern, gamePattern);
-      return newUserPattern;
-    });
-                }
-            }
-            function gameCheck(index,userPattern,gamePattern){
+
+        }
+        function userClick(event){
+            let el = event.target.id;
+            console.log(el);
+            setUserPattern([...userPattern,el]);
+            useEffect(()=>{
                 console.log(userPattern);
-                console.log(gamePattern)
-                if(userPattern[index] === gamePattern[index]){
-                    if(userPattern.length === gamePattern.length){
-                        setTimeout(()=>{
-                            level_up();
-                        },500);
-                    }
-                }else{
-                    gameOver();
-                }
-            }
-            function gameOver(){
-                console.log("game khatam ho gaya");
-            }
+            },[userPattern]);
+        }
+
+
     return(
     <>
     <div className={styles.page}>
@@ -114,27 +59,27 @@ export default function Simon(){
                 <p className={styles.leaderboard}>Leaderboard</p>
             </div>
         </div>
-        <div className={styles.gamepage}>
+        <div className={styles.gamepage} onClick={startGame}>
             <div className={styles.status}>
                 <div className={styles.icon}>
                     <FontAwesomeIcon icon={faRotateRight} />
                 </div>  
                 <div >
-                    <p className={styles.heading}>{heading}</p>
+                    <p className={styles.heading}>adg</p>
 
                 </div>
                 <div className={styles.currentscore}>
-                    <p>Level {level}</p>
+                    <p>Level 4</p>
                 </div>
             </div>
-            <div className={styles.gamecont} onClick={game}>
+            <div className={styles.gamecont} >
                 <div className={styles.up}>
-                    <div onClick={user_click} id='red' className={styles.red } ></div>
-                    <div onClick={user_click} id='green' className={styles.green}></div>
+                    <div onClick={userClick} id='red' className={styles.red } ></div>
+                    <div id='green' className={styles.green}></div>
                 </div>
                 <div className={styles.down}>
-                    <div onClick={user_click} id='blue' className={styles.blue}></div>
-                    <div onClick={user_click} id='yellow' className={styles.yellow}></div>
+                    <div id='blue' className={styles.blue}></div>
+                    <div id='yellow' className={styles.yellow}></div>
                 </div>
             </div>
             <div className={styles.helpandexit}>
