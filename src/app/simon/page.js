@@ -47,12 +47,18 @@ export default function Simon(){
                 let gameLevel = level+1;
                 newLevel(gameLevel);
                 let Rcolor = random_color();
-                setGamePattern(gamePattern.push(Rcolor));
-                console.log(gamePattern);
-                changeHeading("game started !!!!!!!");
+                // setGamePattern(gamePattern.push(Rcolor));
+                setGamePattern(prev =>{
+                    const newGamePattern =[...prev,Rcolor];
+                    changeHeading("game started !!!!!!!");
+                    glow(Rcolor);
+                    
+                    console.log(newGamePattern);
+                    return newGamePattern;
+                })
                 
             }
-            function random_color (){
+            function random_color(){
                 let random = Math.floor(Math.random() * 3);
                 glow(colors[random]);
                 return(colors[random]);
@@ -70,18 +76,22 @@ export default function Simon(){
                 }
             }
             function user_click(event){
-                if(game_start === true){
+                if(game_start === true){    
                 let el = event.target.id;
-                SetUserPattern(userPattern.push(el));
-                console.log(gamePattern);   
-                let ind =  userPattern.length - 1;
-                gameCheck(ind, userPattern, gamePattern); 
+                console.log(el)
+                SetUserPattern(prev => {
+      const newUserPattern = [...prev, el];
+      let index = newUserPattern.length - 1;
+      console.log(index);
+      gameCheck(index, newUserPattern, gamePattern);
+      return newUserPattern;
+    });
                 }
             }
             function gameCheck(index,userPattern,gamePattern){
                 console.log(userPattern);
                 console.log(gamePattern)
-                if(userPattern[index ] === gamePattern[index]){
+                if(userPattern[index] === gamePattern[index]){
                     if(userPattern.length === gamePattern.length){
                         setTimeout(()=>{
                             level_up();
