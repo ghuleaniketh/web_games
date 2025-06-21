@@ -1,6 +1,6 @@
 'use client'
 import styles from './simon.module.css';
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '@/app/lib/fontawesome'; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
@@ -29,10 +29,14 @@ export default function Simon(){
 
         //game ka Logic 
         let [userPattern,setUserPattern] = useState([]);
+        const userPatternRef = useRef([]);
         let [gamePattern,setGamePattern] = useState([]);
+        const gamePatternRef = useRef([]);
         let [game,setGameMode] = useState(false);
         let [heading,setHeading] = useState("Click me to  Start the Game");
+        const setHeadingRef = useRef("Click me to  Start the Game");
         let [level , setGameLevel] = useState(0);
+        const setGameLevelRef = useRef(0);
         let colors = ['red','green','blue','yellow'];
 
         let startGame = ()=>{
@@ -40,23 +44,30 @@ export default function Simon(){
                 setGameMode(true);
                 console.log("game started......");
                 setHeading("Game Started !!!!!!!!!!");
-                setTimeout(inclevel,750);
+                setTimeout(inclevel,600);
             }
         }
 
         function inclevel(){
+            userPatternRef.current = [];
             let Rcolor = getRandomColor();
-            console.log("random color  " +  Rcolor);
-            glow(green);
-            setGamePattern([...gamePattern,Rcolor]);
+            glow(Rcolor);
+            gamePatternRef.current.push(Rcolor);  
             let newLevel = level + 1;
             setGameLevel(newLevel);
 
         }
         function userClick(event){
-            let el = event.target.id;
-            console.log(el);
-            setUserPattern([...userPattern,el]);
+            if(game === true){
+                let el = event.target;
+                userPatternRef.current.push(el.id);     
+                el.classList.add(styles["userglow"]);
+                setTimeout(()=>{
+                    el.classList.remove(styles["userglow"]);
+                },200)
+                let index = userPatternRef.current.length - 1;
+                movecheck(index);
+            }
         }
 
         function getRandomColor(){ 
@@ -64,17 +75,52 @@ export default function Simon(){
             return(colors[random]);
         }
         
-        function glow(color){
-            console.log("i am getting " + color)
-                let el = document.getElementById(color);
-                console.log(el);
-                        }
-        
-        useEffect(()=>{
-                console.log("user array " + userPattern);
-                console.log("game array " + gamePattern);
-            },[userPattern,gamePattern]);
 
+        let glow = (Rcolor)=>{
+            let el = document.getElementById(Rcolor)
+            if(el){
+                console.log("all good")
+                el.classList.add(styles["glow"]);
+                setTimeout(()=>{
+                    el.classList.remove(styles["glow"]);
+                },1000)
+                
+            }else{
+                console.log("gadbad hai bhai")
+            }
+        }
+        function movecheck(index){
+            console.log(index);
+            console.log(userPatternRef.current);
+            console.log(gamePatternRef.current);
+            if(userPatternRef.current[index] === gamePatternRef.current[index]){
+                if(userPatternRef.current.length === gamePatternRef.current.length){
+                    setTimeout(()=>{
+                        inclevel();
+                    },800)
+                }
+            }else{
+                    gameOver();
+                }
+        }
+        
+        function gameOver(){
+            console.log("game over");
+            setGameMode(false);
+            setHeading("Game Over!!!!!!");
+        }
+        
+        function gameReset(event) {
+            console.log("game restarted")
+            setGameLevel(0);
+            setHeading("Click me to Start the Game");
+            setGameMode(false);
+
+            userPatternRef.current = [];
+            setUserPattern([]);         // <--- for UI sync
+            gamePatternRef.current = [];
+            setGamePattern([]);         // <--- for UI sync
+}
 
     return(
     <>
@@ -88,7 +134,7 @@ export default function Simon(){
         </div>
         <div className={styles.gamepage} >
             <div className={styles.status}>
-                <div className={styles.icon}>
+                <div onCanPlay={gameReset} className={styles.icon}>
                     <FontAwesomeIcon icon={faRotateRight} />
                 </div>  
                 <div >
@@ -101,11 +147,11 @@ export default function Simon(){
             <div className={styles.gamecont} >
                 <div className={styles.up}>
                     <div onClick={userClick} id='red' className={styles.red } ></div>
-                    <div id='green' className={styles.green}></div>
+                    <div onClick={userClick} id='green' className={styles.green}></div>
                 </div>
                 <div className={styles.down}>
-                    <div id='blue' className={styles.blue}></div>
-                    <div id='yellow' className={styles.yellow}></div>
+                    <div onClick={userClick} id='blue' className={styles.blue}></div>
+                    <div onClick={userClick} id='yellow' className={styles.yellow}></div>
                 </div>
             </div>
             <div className={styles.helpandexit}>

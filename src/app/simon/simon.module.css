@@ -120,18 +120,6 @@
     border: 2px solid black;
     cursor: pointer;
 }
-.yellow:active{
-    background-color:#e6d470 ;
-}
-.blue:active{
-    background-color:#009dff ;
-}
-.green:active{
-    background-color:#00ff7b ;
-}
-.red:active{
-    background-color:#d85555 ;
-}
 .helpandexit{
     color: white;
     width: 80vmin;
@@ -154,4 +142,18 @@
 .glow{
     opacity: 0.2;
     box-shadow: 0 0 30px white;
+}
+.userglow{
+    box-shadow: 0 0 50px black;
+    opacity: 0.2;
+    transform: scale(1.15);
+}
+.heading{
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    font-size:clamp(12px,2vw,20px);
+}
+.gameover{
+    background: linear-gradient(135deg, #ff1a1a 0%, #ff4e50 50%, #fc913a 100%);
 }
