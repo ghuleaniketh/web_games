@@ -1,5 +1,6 @@
 import db from '@/app/lib/db';
 import { v4 as uuidv4 } from 'uuid';
+import { NextResponse } from 'next/server';
 
 
 export async function POST(req) {
@@ -14,9 +15,9 @@ export async function POST(req) {
         const q = 'INSERT INTO users (id, username, password) VALUES (?, ?, ?)';
         await db.execute(q, [id, username, password]);
 
-        return new Response(JSON.stringify({ success: true }), { status: 200 });
+        return new NextResponse(JSON.stringify({ success: true }), { status: 200 });
     } catch (err) {
         console.error('Register Error:', err);
-        return new Response(JSON.stringify({ error: 'Registration failed' }), { status: 500 });
+        return new NextResponse(JSON.stringify({ error: 'Registration failed' }), { status: 500 });
     }
 }

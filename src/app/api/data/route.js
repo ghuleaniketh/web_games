@@ -1,5 +1,6 @@
 import db from '@/app/lib/db';
 import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
 
 export async function GET(req){
     
@@ -9,5 +10,5 @@ export async function GET(req){
     const q = 'SELECT * FROM users WHERE id = ?'
     let data = await db.query(q,[token]);
     console.log(data[0]);
-    return new Response(JSON.stringify(data[0]),{status:200});
+    return new NextResponse(JSON.stringify(data[0]),{status:200});
 }
