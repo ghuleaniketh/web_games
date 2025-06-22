@@ -104,10 +104,40 @@ export default function Simon(){
                 }
         }
         
+        const handleSubmit = async () => {
+            try {
+                const res = await fetch('/api/updateData', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        newScore: level - 1, // send the correct score
+                    }),
+                });
+
+                if (res.ok) {
+                    const result = await res.json();
+                    console.log("Score updated:", result);
+                } else {
+                    console.error("Failed to update score");
+                }
+            } catch (error) {
+                console.error("Error updating score:", error);
+            }
+        };
+
         function gameOver(){
             console.log("game over");
             setGameMode(false);
             setHeading("Game Over!!!!!!");
+            console.log("high score is" + data.simonScore);
+            console.log("your score is " +  (level - 1));
+            if(data.simonScore < level - 1){
+                handleSubmit();
+            }else{
+                console.log("good try buddy ");
+            }
         }
         
         function gameReset(event) {
@@ -134,7 +164,7 @@ export default function Simon(){
         </div>
         <div className={styles.gamepage} >
             <div className={styles.status}>
-                <div onCanPlay={gameReset} className={styles.icon}>
+                <div onClick={gameReset} className={styles.icon}>
                     <FontAwesomeIcon icon={faRotateRight} />
                 </div>  
                 <div >

@@ -4,7 +4,7 @@ export async function POST(req){
 
     try{
         const {username,password} = await req.json();
-
+        console.log(username);
     const q = `SELECT * FROM users WHERE username = ?`
     let data = await db.query(q,[username]);
     console.log(data[0]);

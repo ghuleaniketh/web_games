@@ -1,7 +1,6 @@
 .contener{
     width: 80vmin;
     max-width: 400px;
-    height: 600px;
     position: fixed;
     background: linear-gradient(135deg, #43cea2 15%, #38a3d1 40%, 70%, #185a9d 100%);
     color: black;
@@ -9,6 +8,7 @@
     border: 2px solid black;
     font-family: 'Poppins', sans-serif;
     box-shadow: 0 0 10px gold;
+    padding:15px 10px;
 }
 .header{
     height: 10%;
