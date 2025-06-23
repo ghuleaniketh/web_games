@@ -20,11 +20,12 @@ export default function Home(){
     }, []);
     let router = useRouter();
     return(
-        <>
+        <div className={styles.page}>
         <div className={styles.topnav}>
             <div className={styles.username}>
                 <p>Hello {data ? data.username : 'Loading...'} Buddy 😁</p>
             </div>
+            <img className={styles.logo} src='/logo.png'></img>
         </div>
         <div className={styles.nav}>
             <div className={styles.branding}>
@@ -56,7 +57,7 @@ export default function Home(){
             </div>
         </div>
         
-        </>
+        </div>
         
     )
 }
