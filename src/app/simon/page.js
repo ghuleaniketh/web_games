@@ -129,7 +129,6 @@ export default function Simon(){
 
         function gameOver(){
             console.log("game over");
-            setGameMode(false);
             setHeading("Game Over!!!!!!");
             console.log("high score is" + data.simonScore);
             console.log("your score is " +  (level - 1));
