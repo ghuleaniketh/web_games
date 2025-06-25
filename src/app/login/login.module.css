@@ -7,56 +7,48 @@
     font-family: 'Poppins', sans-serif;
 }
 .formcont{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background: rgb(213, 232, 235);
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    justify-content: center;
 }
 .formcont p{
-    font-weight: 7z00;
+    font-weight: 700;
     font-size: clamp(20px, 2.5vw, 25px);
 }
 
 .inputcont{
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 5px 15px;
+    align-items: center;
+    gap: 15px;
 }
 .inputcont input{
-    width: 100%;
-    max-width: 260px;
-    padding: 10px 12px;
-    border: 1px solid #b0c4c9;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    background: none;
-    outline: none;
+   width: 90%;
+   height: 40px;
+   padding: 0  20px;
+   border: 1px solid black;
+   border-radius: 25px;
     }
 
     .inputcont input:focus{
         background-color: white;
     }
 .checkinput{
-    margin-top: 5px;
-    margin-left: 10px;
+    width: 120%;
     display: flex;
-    gap: 7px;
 }
 .btn{
-    font-weight: 550;
-    font-size: clamp(15px , 2vw,16px);
+   width: 110%;
+   height: 40px;
+   padding: 0  20px;
+   border: 1px solid black;
+   border-radius: 25px;
     background-color:rgba(177, 235, 235, 0.836); 
-    border: 0.1px solid black;
-    border-radius: 6px;
-    margin-top: 8px;    
-    padding: 3px 5px;
 }
+
+
 .newuser{
     text-decoration: none;
     font-weight: 600;

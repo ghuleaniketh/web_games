@@ -1,54 +1,37 @@
 
-.cont {
+.cont{
+    width: 100%;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 98.3vh;
     font-family: 'Poppins', sans-serif;
 }
 .formcont p{
     font-weight: 800;
-    font-size: clamp(14px, 2.5vw, 20px);
+    font-size: clamp(15px, 2.5vw, 20px);
 }
 .formcont {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background: rgb(213, 232, 235);
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.usernamediv {
-    width: 100%;
-    font-family: 'Poppins', sans-serif;
-}
-
-.formcont h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 1.5rem;
+    justify-content: center;
 }
 
 .inputcont{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 15px;
     
 }
 .inputcont input {
-    height: clamp(20px,2vw,30px);
-    padding: 0 10px;
-    border: 1.5px solid black;
-    border-radius: 7px;
-    font-size: 15px;
-    padding: 7px 15px;
-    background: none;
+   width: 90%;
+   height: 40px;
+   padding: 0  20px;
+   border: 1px solid black;
+   border-radius: 25px;
 }
 .inputcont input:focus{
     background-color: #ffffff;
@@ -56,23 +39,28 @@
 .showpass{
     margin-top: 7px;
 }
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .showpasslabel{
     font-size:11px;
     margin-top: 5px;
 }
 .showpasscont{
+    width: 100%;
     display: flex;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .btn{
-    font-weight: 550;
-    font-size: clamp(15px , 2vw,16px);
+    width: 110%;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 25px;
     background-color:rgba(177, 235, 235, 0.836); 
-    border: 0.1px solid black;
-    border-radius: 6px;
-    margin-top: 8px;
-    padding: 3px 5px;
+    
 }
 .error{
     color: red;
@@ -81,12 +69,16 @@
 .login{
     text-decoration: none;
     font-weight: 600;
+    font-size: clamp(12px, 2vw, 15px);
     color: black;
+    margin-top: 5px;
 }
 .login:hover{
     color: blue;
 }
-
+.ancer{
+    width: 100%;
+}
 @media (max-width:415px) {
 
 

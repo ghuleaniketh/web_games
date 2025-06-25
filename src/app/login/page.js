@@ -79,9 +79,12 @@ export default function Login(){
                     />
                 <label>Show Password</label>
                 </div>
-                <button className={styles.btn} disabled={loading}>
+                <div>
+                    <button className={styles.btn} disabled={loading}>
                     {loading ? 'Logging in...' : 'Submit'}
                 </button>
+                </div>
+                
                 {loading && <div className={styles.loader}></div>}
             </form>
             <a className={styles.newuser} href='./register'>new user ? come register now</a>

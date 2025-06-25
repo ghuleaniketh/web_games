@@ -52,8 +52,8 @@ export default function Register() {
             {error && <p className={styles.error}>{error}</p>}
             <div className={styles.formcont}>
                 <p>Well Come to Games Snap</p>
-                <h3>Create an account</h3>
-                <form onSubmit={handleSubmit}>
+                <p>Create an account</p>
+                <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.inputcont}>
                         <input
                             placeholder='Enter Username'
