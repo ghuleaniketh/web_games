@@ -79,7 +79,6 @@ export default function Simon(){
         let glow = (Rcolor)=>{
             let el = document.getElementById(Rcolor)
             if(el){
-                console.log("all good")
                 el.classList.add(styles["glow"]);
                 setTimeout(()=>{
                     el.classList.remove(styles["glow"]);
@@ -90,9 +89,6 @@ export default function Simon(){
             }
         }
         function movecheck(index){
-            console.log(index);
-            console.log(userPatternRef.current);
-            console.log(gamePatternRef.current);
             if(userPatternRef.current[index] === gamePatternRef.current[index]){
                 if(userPatternRef.current.length === gamePatternRef.current.length){
                     setTimeout(()=>{
@@ -128,10 +124,9 @@ export default function Simon(){
         };
 
         function gameOver(){
-            console.log("game over");
             setHeading("Game Over!!!!!!");
-            console.log("high score is" + data.simonScore);
-            console.log("your score is " +  (level - 1));
+            let gamebackground = document.getElementById('gamebackground');
+            gamebackground.classList.add(styles["gameover"]);
             if(data.simonScore < level - 1){
                 handleSubmit();
             }else{
@@ -140,11 +135,12 @@ export default function Simon(){
         }
         
         function gameReset(event) {
-            console.log("game restarted")
+            console.log("game restarted");
             setGameLevel(0);
             setHeading("Click me to Start the Game");
             setGameMode(false);
-
+            let gamebackground = document.getElementById('gamebackground');
+            gamebackground.classList.remove(styles["gameover"]);
             userPatternRef.current = [];
             setUserPattern([]);         // <--- for UI sync
             gamePatternRef.current = [];
@@ -161,7 +157,7 @@ export default function Simon(){
                 <p className={styles.leaderboard}>Leaderboard</p>
             </div>
         </div>
-        <div className={styles.gamepage} >
+        <div  className={styles.gamepage} >
             <div className={styles.status}>
                 <div onClick={gameReset} className={styles.icon}>
                     <FontAwesomeIcon icon={faRotateRight} />
@@ -173,7 +169,7 @@ export default function Simon(){
                     <p>Level {level}</p>
                 </div>
             </div>
-            <div className={styles.gamecont} >
+            <div id='gamebackground' className={styles.gamecont} >
                 <div className={styles.up}>
                     <div onClick={userClick} id='red' className={styles.red } ></div>
                     <div onClick={userClick} id='green' className={styles.green}></div>
