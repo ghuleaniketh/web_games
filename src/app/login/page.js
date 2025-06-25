@@ -79,11 +79,9 @@ export default function Login(){
                     />
                 <label>Show Password</label>
                 </div>
-                <div>
-                    <button className={styles.btn} disabled={loading}>
+                <button className={styles.btn} disabled={loading}>
                     {loading ? 'Logging in...' : 'Submit'}
                 </button>
-                </div>
                 
                 {loading && <div className={styles.loader}></div>}
             </form>

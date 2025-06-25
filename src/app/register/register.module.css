@@ -1,92 +1,142 @@
-
-.cont{
-    width: 100%;
+.cont {
+    width: 97vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Poppins', sans-serif;
 }
-.formcont p{
-    font-weight: 800;
-    font-size: clamp(15px, 2.5vw, 20px);
-}
+
 .formcont {
-    width: 100%;
+    width: 90%;
+    max-width: 320px;
+    border-radius: 18px;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.inputcont{
+.formcont p {
+    font-weight: 800;
+    font-size: clamp(18px, 2.5vw, 22px);
+    margin-bottom: 0.5rem;
+}
+
+.form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputcont {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    
-}
-.inputcont input {
-   width: 90%;
-   height: 40px;
-   padding: 0  20px;
-   border: 1px solid black;
-   border-radius: 25px;
-}
-.inputcont input:focus{
-    background-color: #ffffff;
-}
-.showpass{
-    margin-top: 7px;
-}
-.form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.showpasslabel{
-    font-size:11px;
-    margin-top: 5px;
-}
-.showpasscont{
-    width: 100%;
-    display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
-.btn{
-    width: 110%;
+.inputcont input {
+    width: 100%;
     height: 40px;
-    border: 1px solid black;
+    padding: 0 20px;
+    border: 1px solid #bbb;
     border-radius: 25px;
-    background-color:rgba(177, 235, 235, 0.836); 
-    
+    background: #f5faff;
+    font-size: 1rem;
+    transition: border 0.2s, background 0.2s;
 }
-.error{
-    color: red;
-    font-weight: bold;
+
+.inputcont input:focus {
+    background-color: #fff;
+    border: 1.5px solid #007bff;
+    outline: none;
 }
-.login{
+
+.showpasscont {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 0.97rem;
+}
+
+.showpass {
+    margin-top: 0;
+}
+
+.showpasslabel {
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.btn {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(177, 235, 235, 0.836);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #222;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background 0.2s;
+}
+
+.btn:disabled {
+    background: #b0b0b0;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.error {
+    color: #ff4444;
+    background: #ffeaea;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 0.98rem;
+    font-weight: 500;
+}
+
+.login {
     text-decoration: none;
     font-weight: 600;
     font-size: clamp(12px, 2vw, 15px);
-    color: black;
-    margin-top: 5px;
+    color: #007bff;
+    margin-top: 0.5rem;
+    transition: color 0.2s;
+    display: block;
+    text-align: center;
 }
-.login:hover{
-    color: blue;
+
+.login:hover {
+    color: #0056b3;
 }
-.ancer{
+
+.ancer {
     width: 100%;
 }
-@media (max-width:415px) {
 
 
-.cont{
-    width: 60%;
-    padding: 0 20%;
-}
-.btn{
-    font-weight: 600;
-}
+@media (max-width: 411px) {
+    .cont {
+        width: 100vw;
+        min-height: 100vh;
+    }
+    .formcont {
+        width: 100%;
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+    }
+    .btn {
+        font-weight: 600;
+    }
 }
