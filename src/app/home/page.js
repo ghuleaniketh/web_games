@@ -39,7 +39,7 @@ export default function Home(){
             <div className={styles.g1} onClick={()=>router.push('./simon')}>
                 <img src='/simon.png'/>
                 <div className={styles.gamename}>
-                    <p>Simon</p>
+                    <p>Simon Game</p>
                 </div>
             </div>
             <div className={styles.g1} onClick={()=>router.push('./coming')}>
