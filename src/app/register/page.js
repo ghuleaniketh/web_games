@@ -51,7 +51,7 @@ export default function Register() {
         <div className={styles.cont}>
             {error && <p className={styles.error}>{error}</p>}
             <div className={styles.formcont}>
-                <p>Well Come to Games Snap</p>
+                <p>Wel-Come to Games Snap</p>
                 <p>Create an account</p>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.inputcont}>
