@@ -6,6 +6,7 @@ export default function LeaderBoard(){
     return(
         <div className={styles.leaderboard}>
             
+            
         </div>
     )
 }
