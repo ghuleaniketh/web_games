@@ -27,7 +27,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content="ca-pub-8102349371771214" />
+        <meta name="google-adsense-account" content="ca-pub-8102349371771214" />
+
+
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}>
         <Script
