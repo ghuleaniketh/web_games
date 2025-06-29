@@ -3,8 +3,8 @@ import styles from './simonleaderboard.module.css';
 import '@/app/lib/fontawesome'; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from 'react';
-
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function LeaderBoard({ onClose }) {
     const [fulldata, setfulldata] = useState(null);
@@ -23,6 +23,7 @@ export default function LeaderBoard({ onClose }) {
     }, []);
 
     return (
+        
         <div className={styles.leaderboard}>
             <div className={styles.cross}>
                 <div className={styles.closeButton} onClick={onClose}>
@@ -42,5 +43,7 @@ export default function LeaderBoard({ onClose }) {
                 <p>Loading...</p>
             )}
         </div>
+        
+        
     );
 }
