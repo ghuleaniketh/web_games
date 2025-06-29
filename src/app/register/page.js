@@ -3,8 +3,8 @@ import styles from './register.module.css';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
+import Link from 'next/link';
 
-import { doc, setDoc } from 'firebase/firestore'; // Firestore methods
 
 export default function Register() {
     const router = useRouter();
@@ -83,7 +83,7 @@ export default function Register() {
                     </div>
                     <button type="submit" className={styles.btn}>Submit</button>
                 </form>
-                <a className={styles.login} href='./login'>Already registered? Login now</a>
+                <Link className={styles.login} href="/login">Already registered? Login now</Link>
             </div>
         </div>
     );
