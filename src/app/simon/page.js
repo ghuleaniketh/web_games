@@ -3,17 +3,18 @@ import styles from './simon.module.css';
 import { useEffect, useRef, useState } from 'react';
 import '@/app/lib/fontawesome'; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faL, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import Router, { useRouter } from 'next/navigation';
 import Help from '@/componets/howtoplaysimon';
-
+import LeaderBoard from "@/componets/simonleaderboard";
 
 export default function Simon(){
         const router = useRouter();
-    const [showPopup, setShowPopup] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);//ye wala help ke liya
+    const [leaderB,setleaderB] = useState(false);//ye wala leaderBoard ke liya
     const [data, setData] = useState(null);
     
         useEffect(() => {
@@ -108,7 +109,7 @@ export default function Simon(){
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        newScore: level - 1, // send the correct score
+                        newScore: level - 1, 
                     }),
                 });
 
@@ -142,9 +143,9 @@ export default function Simon(){
             let gamebackground = document.getElementById('gamebackground');
             gamebackground.classList.remove(styles["gameover"]);
             userPatternRef.current = [];
-            setUserPattern([]);         // <--- for UI sync
+            setUserPattern([]);         
             gamePatternRef.current = [];
-            setGamePattern([]);         // <--- for UI sync
+            setGamePattern([]);         
 }
 
     return(
@@ -154,7 +155,7 @@ export default function Simon(){
             <div className={styles.mainNav}>
                 <p>Let'go {data ? data.username : '  '}</p>
                 <p className={styles.highscore}>Highscore {data ? data.simonScore : " "}</p>
-                <p className={styles.leaderboard}>Leaderboard</p>
+                <p onClick={()=>setleaderB(true)} className={styles.leaderboard}>Leaderboard</p>
             </div>
         </div>
         <div  className={styles.gamepage} >
@@ -187,7 +188,8 @@ export default function Simon(){
                     <FontAwesomeIcon icon={faRightFromBracket} />
                 </div>
             </div>
-            {showPopup && <Help onClose={() => setShowPopup(false)} />}
+            {showPopup && <Help onClose={() => setShowPopup(false)} />} 
+            {leaderB && <LeaderBoard onClose={() => setleaderB(false)} />}
         </div>
     </div>
     </>

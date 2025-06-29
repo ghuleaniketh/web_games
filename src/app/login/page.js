@@ -21,7 +21,7 @@ export default function Login(){
             const res = await fetch('/api/login',{
                 method:'POST',
                 headers:{
-                    'content-Type' :'application/json', // fixed typo
+                    'content-Type' :'application/json',
                 },
                 body:JSON.stringify({
                     username:formData.username,
