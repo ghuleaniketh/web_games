@@ -1,4 +1,4 @@
-import Register from './register/page';
+import Register from './register';
 
 
 export default function Home() {
