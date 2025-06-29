@@ -35,10 +35,9 @@ export default function RootLayout({ children }) {
           id="adsense-script"
           async
           strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8102349371771214"
           crossOrigin="anonymous"
         />
-        
         {children}
       </body>
     </html>
