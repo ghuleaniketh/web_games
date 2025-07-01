@@ -59,6 +59,7 @@ export default function Login(){
             <p>Hello buddy</p>
             <h3>Let's Login</h3>
             <form onSubmit={handleSubmit}>
+                
                 <div className={styles.inputcont}>
                     <input
                     type='text'
