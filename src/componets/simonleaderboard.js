@@ -43,7 +43,5 @@ export default function LeaderBoard({ onClose }) {
                 <p>Loading...</p>
             )}
         </div>
-        
-        
     );
 }

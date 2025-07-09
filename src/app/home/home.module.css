@@ -2,6 +2,9 @@
     background-color: #f9f1e4;
     height: 100vh;
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 .topnav{
     width: 90%;
@@ -62,13 +65,13 @@
     border-radius: 15px;
 }
 .mainhomepage{
-    height: 73%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .topmainpage{
-    height: 25%;
+    height: 30%;
 }
 .greating{
     font-weight: 600;
