@@ -62,7 +62,7 @@ export default function Home(){
                 </div>
             </div>
             <div >
-                <p className={styles.greating}>Made with all Love❤️ BY ANIKETH GHULE</p>
+                <p className={styles.greating}>Made with all Love❤️ BY GHULE ANIKETH</p>
             </div>
         </div>
         </div>
