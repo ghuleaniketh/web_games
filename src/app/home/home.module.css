@@ -1,6 +1,7 @@
 .page{
     background-color: #f9f1e4;
     height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
 .topnav{
     width: 90%;
@@ -14,11 +15,9 @@
 }
 .username{
     font-size: clamp(15px,2vw,30px);
-    font-family: 'Poppins', sans-serif;
 }
 .branding{
     font-size: clamp(10px,3vw,40px);
-    font-family: 'Poppins', sans-serif;
 }
 
 .nav{
@@ -31,7 +30,6 @@
 .heading1 p{
     font-weight: 600;
     font-size: clamp(15px ,2vw,30px);
-    font-family: 'Poppins', sans-serif;
 }
 .gamecont{
     width: 95%;
@@ -58,7 +56,6 @@
     font-size: clamp(10px,2vw,20px);
     margin: 3px;
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;
 }
 .g1 img{
     width: 100%;
@@ -74,5 +71,5 @@
     height: 25%;
 }
 .greating{
-    
+    font-weight: 600;
 }
