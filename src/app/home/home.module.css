@@ -64,3 +64,15 @@
     width: 100%;
     border-radius: 15px;
 }
+.mainhomepage{
+    height: 73%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.topmainpage{
+    height: 25%;
+}
+.greating{
+    
+}

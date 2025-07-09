@@ -21,7 +21,9 @@ export default function Home(){
     let router = useRouter();
     return(
         <div className={styles.page}>
-        <div className={styles.topnav}>
+        
+        <div className={styles.topmainpage}>
+            <div className={styles.topnav}>
             <div className={styles.username}>
                 <p>Hello {data ? data.username : 'Loading...'} Buddy 😁</p>
             </div>
@@ -32,31 +34,37 @@ export default function Home(){
                 <h1>Wel-Come to Games Snap</h1>
             </div>
         </div>
-        <div className={styles.heading1}>
-            <p>Available Games</p>
-        </div >
-        <div className={styles.gamecont}>
-            <div className={styles.g1} onClick={()=>router.push('./simon')}>
-                <img src='/simon.png'/>
-                <div className={styles.gamename}>
-                    <p>Simon Game</p>
+        </div>
+        <div className={styles.mainhomepage} >
+            <div>
+                <div className={styles.heading1}>
+                <p>Available Games</p>
+                </div >
+                <div className={styles.gamecont}>
+                    <div className={styles.g1} onClick={()=>router.push('./simon')}>
+                        <img src='/simon.png'/>
+                        <div className={styles.gamename}>
+                            <p>Simon Game</p>
+                        </div>
+                    </div>
+                    <div className={styles.g1} onClick={()=>router.push('./coming')}>
+                        <img src='/comingsoon.png'/>
+                        <div className={styles.gamename}>
+                            <p>Coming Soon</p>
+                        </div>
+                    </div>
+                    <div className={styles.g1}  onClick={()=>router.push('./coming')}>
+                        <img src='/comingsoon.png'/>
+                        <div className={styles.gamename}>
+                            <p>Coming Soon</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div className={styles.g1} onClick={()=>router.push('./coming')}>
-                <img src='/comingsoon.png'/>
-                <div className={styles.gamename}>
-                    <p>Coming Soon</p>
-                </div>
-
-            </div>
-            <div className={styles.g1}  onClick={()=>router.push('./coming')}>
-                 <img src='/comingsoon.png'/>
-                <div className={styles.gamename}>
-                    <p>Coming Soon</p>
-                </div>
+            <div >
+                <p className={styles.greating}>Made with all Love❤️ BY ANIKETH GHULE</p>
             </div>
         </div>
-        
         </div>
         
     )
