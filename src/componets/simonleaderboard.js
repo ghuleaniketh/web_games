@@ -35,7 +35,7 @@ export default function LeaderBoard({ onClose }) {
                 <ul className={styles.list}>
                     {fulldata.map((user, index) => (
                         <li key={index} className={styles.item}>
-                            <span>{user.username}</span> <span>Score: {user.simonScore}</span>
+                            <span>{user.username}</span> <span>Score: {user.simon_score}</span>
                         </li>
                     ))}
                 </ul>

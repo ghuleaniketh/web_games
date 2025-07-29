@@ -102,6 +102,7 @@ export default function Simon(){
         }
         
         const handleSubmit = async () => {
+            console.log(level);
             try {
                 const res = await fetch('/api/updateData', {
                     method: 'POST',
@@ -128,7 +129,7 @@ export default function Simon(){
             setHeading("Game Over!!!!!!");
             let gamebackground = document.getElementById('gamebackground');
             gamebackground.classList.add(styles["gameover"]);
-            if(data.simonScore < level - 1){
+            if(data.simon_score < level - 1){
                 handleSubmit();
             }else{
                 console.log("good try buddy ");
@@ -154,7 +155,7 @@ export default function Simon(){
         <div className={styles.bar}>
             <div className={styles.mainNav}>
                 <p>Let'go {data ? data.username : '  '}</p>
-                <p className={styles.highscore}>Highscore {data ? data.simonScore : " "}</p>
+                <p className={styles.highscore}>Highscore {data ? data.simon_score : " "}</p>
                 <p onClick={()=>setleaderB(true)} className={styles.leaderboard}>Leaderboard</p>
             </div>
         </div>

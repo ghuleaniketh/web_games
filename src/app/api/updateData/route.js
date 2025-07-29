@@ -1,14 +1,15 @@
 import db from '@/app/lib/db';
 import { cookies } from 'next/headers';
-import { NextResponse } from 'next/server';
 
 
 export async function POST(req){
 
     const {newScore} = await req.json();
+    console.log(newScore);
     const userCookie = await cookies();
     const id = userCookie.get('token').value;
-    const q = 'UPDATE users SET simonScore = ? WHERE id = ?';
+    console.log(id);
+    const q = 'UPDATE users SET simon_score = ? WHERE id = ?';
     await db.query(q, [newScore, id]);
     
 }
