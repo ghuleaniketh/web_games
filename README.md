@@ -11,8 +11,8 @@ Here are some previews of the games included:
 
 <img src="public/screenshot/game1.png" alt="Screenshot 1" width="500"/>
 <img src="public/screenshot/game2.png" alt="Screenshot 2" width="500"/>
-<img src="public/screenshot/game4.jpg" alt="Screenshot 2" width="500"/>
-<img src="public/screenshotgame3.jpg" alt="Screenshot 1" width="500"/>
+<img src="public/screenshot/game4.jpg" alt="Screenshot 2" width="200"/>
+<img src="public/screenshot/game3.jpg" alt="Screenshot 9" width="200"/>
 
 
 
