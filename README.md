@@ -9,9 +9,9 @@ Here are some previews of the games included:
 
 
 
+<img src="[screenshots/game1.png](https://github.com/user-attachments/assets/4429d20b-89e2-473f-a51b-b3c972286319)" alt="Screenshot 1" width="500"/>
 
 
-![WhatsApp Image 2025-08-09 at 18 10 33_3af3ec40](https://github.com/user-attachments/assets/4429d20b-89e2-473f-a51b-b3c972286319)
 
 
 ✨ Features
