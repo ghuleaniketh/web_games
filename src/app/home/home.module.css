@@ -77,3 +77,8 @@
     font-weight: 600;
     font-size: clamp(16px ,2vw,25px);
 }
+@media (max-width: 600px) {
+  .topmainpage{
+    height: 10%;
+}
+}
