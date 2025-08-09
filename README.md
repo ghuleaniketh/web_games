@@ -9,10 +9,10 @@ Here are some previews of the games included:
 
 
 
-<img src="public/screenshots/game1.png" alt="Screenshot 1" width="500"/>
-<img src="public/screenshots/game2.png" alt="Screenshot 2" width="500"/>
-<img src="public/screenshots/game3.png" alt="Screenshot 1" width="500"/>
-<img src="public/screenshots/game4.png" alt="Screenshot 2" width="500"/>
+<img src="public/screenshot/game1.png" alt="Screenshot 1" width="500"/>
+<img src="public/screenshot/game2.png" alt="Screenshot 2" width="500"/>
+<img src="public/screenshotgame3.png" alt="Screenshot 1" width="500"/>
+<img src="public/screenshot/game4.png" alt="Screenshot 2" width="500"/>
 
 
 
